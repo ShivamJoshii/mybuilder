@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     domains: ['localhost', 'i.imgur.com', 'mybuilder.b-cdn.net'],
     formats: ['image/webp', 'image/avif'],
   },

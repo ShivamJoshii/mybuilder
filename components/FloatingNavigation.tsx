@@ -77,7 +77,7 @@ export function FloatingNavigation() {
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className={`mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-white/80 backdrop-blur-md px-4 pb-3 md:flex shadow-lg border border-gray-200/50 ${className}`}
+        className={`mx-auto hidden h-14 sm:h-16 items-end gap-2 sm:gap-4 rounded-2xl bg-white/80 backdrop-blur-md px-3 sm:px-4 pb-2 sm:pb-3 md:flex shadow-lg border border-gray-200/50 ${className}`}
       >
         {items.map((item: any) => (
           <IconContainer mouseX={mouseX} key={item.title} {...item} />
@@ -95,7 +95,7 @@ export function FloatingNavigation() {
           {open && (
             <motion.div
               layoutId="nav"
-              className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
+              className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2 max-h-80 overflow-y-auto"
             >
               {items.map((item: any, idx: number) => (
                 <motion.div
@@ -123,9 +123,9 @@ export function FloatingNavigation() {
                       }
                       setOpen(false);
                     }}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-md shadow-lg border border-gray-200/50"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-gray-200/50 active:scale-95 transition-transform"
                   >
-                    <div className="h-4 w-4">{item.icon}</div>
+                    <div className="h-5 w-5">{item.icon}</div>
                   </button>
                 </motion.div>
               ))}
@@ -134,9 +134,9 @@ export function FloatingNavigation() {
         </AnimatePresence>
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-md shadow-lg border border-gray-200/50"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-gray-200/50 active:scale-95 transition-transform"
         >
-          <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+          <IconLayoutNavbarCollapse className="h-6 w-6 text-neutral-500 dark:text-neutral-400" />
         </button>
       </div>
     );

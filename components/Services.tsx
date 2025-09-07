@@ -21,13 +21,13 @@ export function Services() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16 px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-4 sm:mb-6"
           >
             Our <span className="gradient-text">Services</span>
           </motion.h2>
@@ -36,14 +36,14 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
             Comprehensive digital solutions designed to grow your business and establish your online presence.
           </motion.p>
         </div>
 
         {/* Feature Tabs */}
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Tab List */}
           <div className="lg:col-span-1">
             <div className="space-y-2">

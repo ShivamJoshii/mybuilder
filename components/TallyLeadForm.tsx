@@ -65,8 +65,8 @@ export function TallyLeadForm() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-muted rounded-2xl p-8 shadow-lg">
-                <div className="w-full h-[600px]">
+              <div className="bg-muted rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
+                <div className="w-full h-[500px] sm:h-[600px]">
                   <iframe
                     src="https://tally.so/r/waRk1y"
                     width="100%"

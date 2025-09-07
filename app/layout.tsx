@@ -100,6 +100,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <div className="relative flex min-h-screen flex-col">
           <main className="flex-1">

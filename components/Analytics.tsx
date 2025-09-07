@@ -1,31 +1,24 @@
 'use client'
 
+import { useEffect } from 'react'
+
 export function Analytics() {
-  return (
-    <>
-      {/* Plausible Analytics */}
-      <script
-        defer
-        data-domain="mybuilder.ca"
-        src="https://plausible.io/js/script.js"
-      />
-      
-      {/* Google Analytics (if needed) */}
-      {/* <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID');
-          `,
-        }}
-      /> */}
-    </>
-  )
+  useEffect(() => {
+    // Load analytics after page is fully loaded
+    const loadAnalytics = () => {
+      const script = document.createElement('script')
+      script.defer = true
+      script.setAttribute('data-domain', 'mybuilder.ca')
+      script.src = 'https://plausible.io/js/script.js'
+      document.head.appendChild(script)
+    }
+
+    // Load analytics after a delay to prioritize page content
+    const timer = setTimeout(loadAnalytics, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [])
+
+  return null
 }
 

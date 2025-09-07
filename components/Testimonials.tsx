@@ -79,6 +79,9 @@ export function Testimonials() {
                   height={450}
                   className="w-full h-auto object-cover"
                   priority={index < 2}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={80}
+                  loading={index < 2 ? 'eager' : 'lazy'}
                 />
                 
                 {/* Hover Overlay */}

@@ -4,24 +4,35 @@ import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Footer } from '@/components/Footer'
 import { Analytics } from '@/components/Analytics'
-import { FloatingNavigation } from '@/components/FloatingNavigation'
+import dynamic from 'next/dynamic'
+
+// Lazy load navigation to improve initial page load
+const FloatingNavigation = dynamic(() => import('@/components/FloatingNavigation').then(mod => ({ default: mod.FloatingNavigation })), {
+  ssr: false,
+})
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  preload: true,
 })
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  preload: false,
 })
 
 const jetbrains = JetBrains_Mono({ 
   subsets: ['latin'],
   variable: '--font-jetbrains',
   display: 'swap',
+  weight: ['400', '500'],
+  preload: false,
 })
 
 export const metadata: Metadata = {

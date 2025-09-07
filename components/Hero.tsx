@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -16,12 +16,38 @@ const certificationBadges = [
 ]
 
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    const checkReduceMotion = () => {
+      setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    }
+
+    checkMobile()
+    checkReduceMotion()
+    
+    window.addEventListener('resize', checkMobile)
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', checkReduceMotion)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+      window.matchMedia('(prefers-reduced-motion: reduce)').removeEventListener('change', checkReduceMotion)
+    }
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-muted via-white to-muted">
-      {/* Background Boxes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <Boxes className="opacity-20" />
-      </div>
+      {/* Background Boxes - Only show on desktop for performance */}
+      {!isMobile && (
+        <div className="absolute inset-0 overflow-hidden">
+          <Boxes className="opacity-20" />
+        </div>
+      )}
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -32,9 +58,9 @@ export function Hero() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.8 }}
             className="mb-8"
           >
             <LogoWithText size="lg" className="justify-center" />
@@ -125,25 +151,27 @@ export function Hero() {
 
 
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
+      {/* Scroll Indicator - Simplified on mobile */}
+      {!isMobile && (
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
-          />
+            animate={reduceMotion ? {} : { y: [0, 10, 0] }}
+            transition={reduceMotion ? {} : { duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          >
+            <motion.div
+              animate={reduceMotion ? {} : { y: [0, 12, 0] }}
+              transition={reduceMotion ? {} : { duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </section>
   )
 }

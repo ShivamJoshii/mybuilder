@@ -22,7 +22,9 @@ export function Logo({ className = '', size = 'md' }: LogoProps) {
         width={64}
         height={64}
         className="w-full h-full object-contain"
-        priority
+        priority={size === 'lg' || size === 'xl'}
+        sizes="(max-width: 768px) 32px, (max-width: 1200px) 48px, 64px"
+        quality={85}
       />
     </div>
   )

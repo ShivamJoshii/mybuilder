@@ -1,0 +1,109 @@
+{
+    "designSystem": {
+      "branding": {
+        "logoPlacement": "top-left",
+        "primaryBrandColor": "gradient-rainbow (blue, purple, pink, orange)",
+        "secondaryColors": ["light grey", "white", "subtle gradient backgrounds"],
+        "backgroundEffects": {
+          "type": "fluid gradients",
+          "colors": ["soft lavender", "light blue", "white"],
+          "patterns": "dotted/abstract wave overlays"
+        }
+      },
+      "typography": {
+        "primaryFont": "sans-serif (modern, clean, geometric)",
+        "headings": {
+          "weight": "bold",
+          "sizes": ["xxl for hero", "xl for section headers", "lg for subheaders"],
+          "color": "black or near-black"
+        },
+        "body": {
+          "weight": "regular",
+          "size": "md",
+          "color": "dark grey"
+        },
+        "highlight": {
+          "gradientText": "applied to keywords (rainbow gradient fill)"
+        }
+      },
+      "components": {
+        "navbar": {
+          "layout": "horizontal, centered links",
+          "items": ["Home", "Features (dropdown)", "Pricing", "Resources", "Partners", "Auth Links"],
+          "authLinks": {
+            "SignUp": "highlighted in purple/gradient",
+            "SignIn": "minimal link with arrow"
+          },
+          "background": "white, subtle shadow"
+        },
+        "heroSection": {
+          "layout": "centered headline, subheadline, CTA button",
+          "ctaButton": {
+            "style": "pill/rounded",
+            "color": "black with white text",
+            "hoverEffect": "gradient border or subtle glow"
+          },
+          "floatingIcons": {
+            "style": "rounded-square cards with shadow",
+            "icons": "line icons with minimal color highlights",
+            "placement": "scattered grid around headline"
+          },
+          "certificationBadges": "inline row below CTA"
+        },
+        "trustBanner": {
+          "logos": "well-known brand logos in horizontal scroll",
+          "background": "white"
+        },
+        "featureTabs": {
+          "layout": "vertical tab list on left, content panel on right",
+          "selectedTabStyle": "highlight with gradient underline",
+          "contentPanel": {
+            "cards": "rounded, shadow, light background",
+            "iconPlacement": "top-left small icon"
+          }
+        },
+        "automationSection": {
+          "title": "centered headline with gradient highlight",
+          "integrationIcons": {
+            "layout": "scrollable row of badges",
+            "badgeStyle": "rounded rectangle, light pastel backgrounds"
+          },
+          "workflowSteps": {
+            "layout": "numbered steps",
+            "connectionStyle": "curved arrows or dotted lines",
+            "elements": "modular card blocks with icons, shadows"
+          }
+        },
+        "cookieBanner": {
+          "position": "bottom-right",
+          "style": "dark rounded box with white text",
+          "buttons": {
+            "accept": "light button",
+            "reject": "outlined button"
+          }
+        }
+      },
+      "layout": {
+        "gridSystem": "12-column responsive grid",
+        "breakpoints": {
+          "desktop": "1200px+",
+          "tablet": "834px - 1199px",
+          "mobile": "<834px"
+        },
+        "mobileRules": {
+          "stackSections": "vertical stacking",
+          "centerText": "all CTA and text centered",
+          "hideDecorations": "floating icons and large images hidden"
+        }
+      },
+      "effects": {
+        "shadows": "soft shadow on cards/buttons/icons",
+        "animations": "fade-in, hover-scale, gradient-text animations",
+        "hoverStates": {
+          "buttons": "slight grow with glow",
+          "icons": "lift with shadow"
+        }
+      }
+    }
+  }
+  

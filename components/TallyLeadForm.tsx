@@ -1,0 +1,89 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { Mail, Phone, MapPin } from 'lucide-react'
+import { siteConfig } from '@/lib/data'
+
+export function TallyLeadForm() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6">
+                Ready to <span className="gradient-text">Get Started</span>?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Let's discuss your project and how we can help you build a successful online presence. Our team is ready to turn your vision into reality.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+                    <Mail className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-dark">Email Us</div>
+                    <div className="text-gray-600">{siteConfig.contact.email}</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+                    <Phone className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-dark">Call Us</div>
+                    <div className="text-gray-600">{siteConfig.contact.phone}</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-dark">Visit Us</div>
+                    <div className="text-gray-600">{siteConfig.contact.address}</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Tally Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-muted rounded-2xl p-8 shadow-lg">
+                <div className="w-full h-[600px]">
+                  <iframe
+                    src="https://tally.so/r/waRk1y"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="Contact Form"
+                    className="rounded-xl"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+

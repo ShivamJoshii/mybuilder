@@ -30,7 +30,7 @@ export function TallyLeadForm() {
               viewport={{ once: true }}
             >
               <div className="bg-muted rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
-                <div className="w-full h-auto">
+                <div className="w-full h-[800px]">
                   {shouldLoadForm ? (
                     <iframe
                       src="https://tally.so/r/waRk1y"
